@@ -14,8 +14,27 @@ AIAgentBridge has three parts:
 
 ---
 
+## See it in action
+
+A real session in **Live VS Code** mode: from the phone, the user asks the Copilot agent in VS Code to list their Home Assistant dashboards, then to add an HBO Max button to the Home Theater dashboard. The agent makes the change and the reply comes back to the phone.
+
+| Chat on the phone | App settings |
+| :---: | :---: |
+| <img src="images/agentbridgechat.jpg" alt="Android app chat: the user asks for an HBO Max button on the Home Theater dashboard and the agent's reply comes back" width="300"> | <img src="images/agentbridgesettings.jpg" alt="Android app settings: Live VS Code mode selected and connected, read-aloud summaries enabled, HTTPS server URL" width="300"> |
+
+**The same conversation in VS Code.** The relay typed the phone's messages into the open Copilot chat (right). The Home Assistant dashboard (left) shows the new HBO Max button in Roku Apps.
+
+<img src="images/agentbridgevscode.PNG" alt="VS Code with the Home Assistant Home Theater dashboard on the left and the Copilot chat driven from the phone on the right" width="100%">
+
+**The Live VS Code relay (`hostUi/`) running.** It serves HTTPS on port 8444 and logs the phone's requests: WebSocket connect, conversation sync, voice transcription and spoken summary.
+
+<img src="images/agentbridgeserver.PNG" alt="Terminal running npm run start in hostUi, showing the relay listening on HTTPS port 8444 and logging requests from the phone" width="100%">
+
+---
+
 ## Table of contents
 
+- [See it in action](#see-it-in-action)
 - [Features](#features)
 - [Architecture](#architecture)
 - [Security model](#security-model)
