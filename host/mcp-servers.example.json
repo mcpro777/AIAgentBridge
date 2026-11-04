@@ -1,0 +1,60 @@
+{
+  "servers": [
+    {
+      "name": "homeassistant",
+      "type": "stdio",
+      "command": "C:\\Program Files\\nodejs\\node.exe",
+      "args": ["dist/ha-mcp.js"],
+      "workingDirectory": "C:\\path\\to\\AgentBridge\\host",
+      "tools": [
+        "ha_check_api",
+        "ha_get_config",
+        "ha_get_components",
+        "ha_get_states",
+        "ha_get_state",
+        "ha_get_services",
+        "ha_call_service",
+        "ha_get_events",
+        "ha_get_history",
+        "ha_get_logbook",
+        "ha_get_error_log",
+        "ha_get_calendars",
+        "ha_get_calendar_events"
+      ],
+      "env": {
+        "SystemRoot": "${SystemRoot}",
+        "WINDIR": "${WINDIR}",
+        "TEMP": "${TEMP}",
+        "TMP": "${TMP}",
+        "HA_BASE_URL": "${HA_BASE_URL}",
+        "HA_TOKEN": "${HA_TOKEN}"
+      }
+    },
+    {
+      "name": "ha_files",
+      "type": "stdio",
+      "command": "C:\\Program Files\\nodejs\\node.exe",
+      "args": ["node_modules/@modelcontextprotocol/server-filesystem/dist/index.js", "C:\\path\\to\\HomeAssistant\\config"],
+      "workingDirectory": "C:\\path\\to\\AgentBridge\\host",
+      "tools": [
+        "list_allowed_directories",
+        "list_directory",
+        "list_directory_with_sizes",
+        "directory_tree",
+        "read_text_file",
+        "read_multiple_files",
+        "search_files",
+        "get_file_info",
+        "create_directory",
+        "write_file",
+        "edit_file"
+      ],
+      "env": {
+        "SystemRoot": "${SystemRoot}",
+        "WINDIR": "${WINDIR}",
+        "TEMP": "${TEMP}",
+        "TMP": "${TMP}"
+      }
+    }
+  ]
+}
